@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer} from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Nike from "./components/Nike";
+import Mizuno from "./components/Mizuno";
+import Adidas from "./components/Adidas";
+
+
+
+const Nav = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      
+        <Nav.Navigator>
+          <Nav.Screen name="Nike" component={Nike}/>
+          <Nav.Screen name="Mizuno" component={Mizuno}/>
+          <Nav.Screen name="Adidas" component={Adidas}/>
+
+        </Nav.Navigator>
+      
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
